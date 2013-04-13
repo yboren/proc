@@ -1,4 +1,4 @@
 proc
 ====
 
-a translation of /proc on linux system
+about procfs on linux system
