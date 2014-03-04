@@ -74,3 +74,23 @@ smaps		每一块内存消耗的统计
 这里看到的信息和用ps命令看到的差不多，实际上，ps命令就是读取/proc里面的文件，解析其中的字段来展示的。
 
 status中的字段含义是这样的
+name:当前运行的进程名
+state:进程状态，可能是：运行中，睡眠中，磁盘睡眠，停止，被跟踪，僵尸，死亡
+Tgid:线程组ID（进程PID）
+Pid:线程ID
+PPid：父进程PID
+TracerPid:跟踪者进程的PID
+Uid,Gid:真实的，有效的，文件系统的用户标识和组标识
+FDSize：当前使用的文件描述符数目
+Group：
+VmPeak:用到的虚拟内存最大值
+VmSize：虚拟内存大小
+VmLck：锁住的内存大小
+VmHWM：最大常驻内存大小
+VmRSS: 常驻内存大小
+VmData，VmStk，VmExe：数据段，堆栈段，代码段大小
+VmLib：共享库大小
+VmPTE：页表大小
+Threads：进程包含的线程数
+SigQ：用斜杠分隔的两个数字，一个表示当前排队等待的信号数，一个表示最大等待的信号数
+
