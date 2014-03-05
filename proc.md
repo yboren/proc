@@ -3,6 +3,46 @@ proc是linux系统下一个伪文件系统，挂载于/proc目录，它实际上
 收集系统信息
 ===========
 
+系统相关
+--------
+
+/proc/meminfo
+
+这个文件主要包含了系统内存使用的统计数据，像free命令就是读取的这个文件的数据来报告系统使用了多少内存，还有多少剩余，多少是buffered，多少是cached。文件中每一行的格式是属性名，冒号，属性值，值一般包括一个单位项（比如KB）。下面是一个属性名字的列表，说明了每一项的含义，以及格式，其中有些属性只有在内存配置了某些选项之后才会有。
+
+MemTotal：物理内存使用总量（除掉一些保留内存和内核代码占用的）
+MemFree：物理内存空闲量，两部分（LowFree + HighFree）
+Buffers：相对来说临时占用的内存，不会太大，一般是文件元信息缓存
+Cached：一般是读取文件在内存的缓存（Page Cache），不包括SwapCached
+SwapCached：曾经被换出到交换文件，但是现在又换进内存的大小，但是同时这部分文件依然在交换文件中存在，如果内存压力大，需要再次换出的话，因为交换文件中已经存在，所以可以节省IO
+Active：最近被使用到的内存
+Inactive：最近未被使用的内存
+HighTotal：大于860MB的内存总量
+HighFree：大于860MB的内存空闲量
+LowTotal：小于860MB的内存总量
+LowFree：小于860MB的内存空闲量
+SwapTotal：交换空间总量
+SwapFree：交换空间空闲量
+Dirty：需要写回到磁盘的内存量
+WriteBack：正在写回磁盘的内存量
+AnonPages：用户空间使用的内存页大小，但是不是文件缓存
+Mapped：映射的内存大小，比如共享库
+Slab：内核数据结构缓存
+SReclaimable：Slab的一部分，能被回收再利用的
+SUnreclaim：Slab的一部分，不能回收再利用
+KernelStack：内核栈使用的大小
+PageTables：页表使用的大小
+NFS Unstable：网络文件系统来的数据，但还未写入到固定存储
+Bounce：块设备使用的缓冲区
+WritebackTmp：FUSE使用的临时写回缓冲区
+CommitLimit：系统能分配的内存上限，由参数vm.overcommit_ratio控制。依据如下公式进行计算，总量＝（物理内存量－TLB内存量）* overcommit_ratio / 100 + 交换空间量。比如1GB内存，7GB交换空间，owercommit_ratio设置为30，则
+CommitLimit＝1GB * 30 / 100 + 7GB＝7.3GB。
+Committed AS：当前系统已经申请的内存总量，包括已经申请但未使用的量。
+VmallocTotal：虚拟内存区域大小
+VmallocUsed：已经使用的虚拟内存区域大小
+VmallocChunk：最大连续空闲的虚拟内存区域
+
+
 进程相关
 --------
 
