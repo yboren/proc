@@ -43,6 +43,10 @@ VmallocUsed：已经使用的虚拟内存区域大小
 VmallocChunk：最大连续空闲的虚拟内存区域
 
 
+/proc/modules
+
+当前被载入进内核的模块列表
+
 进程相关
 --------
 
