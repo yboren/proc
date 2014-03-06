@@ -42,7 +42,6 @@ VmallocTotal：虚拟内存区域大小
 VmallocUsed：已经使用的虚拟内存区域大小
 VmallocChunk：最大连续空闲的虚拟内存区域
 
-
 /proc/modules
 
 当前被载入进内核的模块列表
@@ -59,6 +58,9 @@ CPU和系统架构相关的信息，每个处理器一个列表。如果是多�
 
 当前被载入进内核的模块列表
 
+/proc/kallsyms
+
+所有被内核导出的符号，modules系列命令会用到，2.5.47以前叫ksyms。
 进程相关
 --------
 
