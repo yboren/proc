@@ -61,7 +61,6 @@ CPU和系统架构相关的信息，每个处理器一个列表。如果是多�
 /proc/kallsyms
 
 所有被内核导出的符号，modules系列命令会用到，2.5.47以前叫ksyms。
-进程相关
 
 /proc/filesystems
 
@@ -69,13 +68,18 @@ CPU和系统架构相关的信息，每个处理器一个列表。如果是多�
 
 这个文件有可能会被mount命令用到，当mount执行的时候没有指明文件系统名字，mount无法判断是哪个文件，就会尝试这个文件中列出的文件系统。
 
+/proc/config.gz
+
+这个文件包含了当前运行的内核的配置选项，和编译内核时的.config文件格式一样，只有配置了内核选项CONFIG_IKONFIG_PROC才有这个文件。这个文件是压缩过的,可以使用zcat或者zgrep来查看其内容。这个文件和这个命令得到的内容一致，cat /lib/modules/$(uname -r)/build/.config。
+
+进程相关
 --------
 
 对于每个进程，在/proc目录下都有一个以pid命名的子目录，保存了进程相关的一些信息。有一个self目录，这个目录会动态的指向正在读/proc目录的进程。
 
 每个进程的目录下主要有这些项
 
-clear_refs	清空在smpas中出现的页面引用位
+clear_refs	清空在smaps中出现的页面引用位
 cmdline		启动这个进程的命令行参数
 cpu			当前或者上一次运行该进程的cpu
 cwd			进程的工作目录
