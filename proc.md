@@ -96,6 +96,8 @@ wchan		进程睡眠时在内核中的位置
 pagemap		页表
 stack		进程运行栈
 smaps		每一块内存消耗的统计
+limits		资源限制
+oom_score_adj		OOM的时候计算分数调整limits		资源限制
 
 举例来说，想得到一个进程相关的信息，就读取/proc/<PID>/status
 
