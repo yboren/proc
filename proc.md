@@ -172,4 +172,15 @@ Mems allowed：内存掩码，表示进程能使用哪些内存结点
 Mems allowed list：和上面一样，不过表示能使用哪些内存结点
 voluntary_context_switches，nonvoluntary_context_switches：自愿的上下文切换，非自愿的上下文切换
 
+进程统计信息还有一个文件，/proc/[pid]/stat，ps命令会用到这个文件。这个文件是一组数字，各个字段的含义如下：
+
+pid：进程ID
+comm：可执行文件名字，如果被交换出去的话，则名字不可见
+state：进程目前所处的状态，取值是“RSDZTW”这几个字母之一一。R是运行，S是睡眠可中断，D是不可中断等待磁盘，Z是僵尸，T是被跟踪或者停止态。
+ppid：父进程ID
+pgrp：父进程组ID
+session：会话ID
+tty_nr：进程的控制终端
+tpgid：进程控制终端的前台进程组ID
+flags：进程的内核标记
 
