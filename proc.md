@@ -201,3 +201,20 @@ rss：进程占用的在内存中的资源大小，包含代码段，数据段�
 rsslim：进程的资源软限制
 startcode：进程代码可执行起始地址
 endcode：进程代码可执行结束地址
+startstack：堆栈的起始地址（栈底）
+kstkesp：ESP寄存器的当前值
+kstkeip：EIP寄存器的当前值
+signal：未处理的信号（已经废弃）
+blocked：阻止的信号（已经废弃）
+sigignore：忽略的信号（已经废弃）
+sigcatch：捕捉到的信息（已经废弃）
+wchan：进程等待的内核地址
+nswap：换出的页面数(不再维护)
+cnswap：子进程累计的换出页面数(不再维护)
+exit_signal：进程死掉时发送给父进程的信号
+processor：上一次运行的CPU
+rt_priority：实时调度策略下的优先级，1到99的数字。
+policy：调度策略
+delayacct_blkio_ticks：累计IO延迟
+guest_time：为guest os运行花费的时间
+cguest_tie：子进程为guest_os运行花费的时间
