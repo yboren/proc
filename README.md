@@ -1,6 +1,6 @@
 proc
 ====
 
-about procfs on linux system.
+about procfs on linux system, introduce stuff under /proc.
 
 
