@@ -145,76 +145,76 @@ CPU和系统架构相关的信息，每个处理器一个列表。如果是多�
 
 status中的字段含义是这样的
 
-    name：当前运行的进程名  
-    state：进程状态，可能是：运行中，睡眠中，磁盘睡眠，停止，被跟踪，僵尸，死亡  
-    Tgid：线程组ID（进程PID）  
-    Pid：线程ID  
-    PPid：父进程PID  
-    TracerPid：跟踪者进程的PID  
-    Uid，Gid：真实的，有效的，文件系统的用户标识和组标识  
-    FDSize：当前使用的文件描述符数目  
-    Group：  
-    VmPeak：用到的虚拟内存最大值  
-    VmSize：虚拟内存大小  
-    VmLck：锁住的内存大小  
-    VmHWM：最大常驻内存大小  
-    VmRSS： 常驻内存大小  
+    name                ：当前运行的进程名  
+    state               ：进程状态，可能是：运行中，睡眠中，磁盘睡眠，停止，被跟踪，僵尸，死亡  
+    Tgid                ：线程组ID（进程PID）  
+    Pid                 ：线程ID  
+    PPid                ：父进程PID  
+    TracerPid           ：跟踪者进程的PID  
+    Uid，Gid            ：真实的，有效的，文件系统的用户标识和组标识  
+    FDSize              ：当前使用的文件描述符数目  
+    Group               ：  
+    VmPeak              ：用到的虚拟内存最大值  
+    VmSize              ：虚拟内存大小  
+    VmLck               ：锁住的内存大小  
+    VmHWM               ：最大常驻内存大小  
+    VmRSS               ： 常驻内存大小  
     VmData，VmStk，VmExe：数据段，堆栈段，代码段大小  
-    VmLib：共享库大小  
-    VmPTE：页表大小  
-    Threads：进程包含的线程数  
-    SigQ：用斜杠分隔的两个数字，一个表示当前排队等待的信号数，一个表示最大等待的信号数  
-    SigPnd，ShdPnd：进程或者线程未处理的信号数  
+    VmLib               ：共享库大小  
+    VmPTE               ：页表大小  
+    Threads             ：进程包含的线程数  
+    SigQ                ：用斜杠分隔的两个数字，一个表示当前排队等待的信号数，一个表示最大等待的信号数  
+    SigPnd，ShdPnd      ：进程或者线程未处理的信号数  
     SigBlk，SigIgn，SigCgt：信号掩码，分别表示阻止，忽略，捕获的信号  
-    Cpus allowd：CPU掩码，表示进程能在哪个CPU上运行  
-    Cpus allowd list：和上面一样，不过表示能在哪些CPU上运行  
-    Mems allowed：内存掩码，表示进程能使用哪些内存结点  
-    Mems allowed list：和上面一样，不过表示能使用哪些内存结点  
+    Cpus allowd         ：CPU掩码，表示进程能在哪个CPU上运行  
+    Cpus allowd list    ：和上面一样，不过表示能在哪些CPU上运行  
+    Mems allowed        ：内存掩码，表示进程能使用哪些内存结点  
+    Mems allowed list   ：和上面一样，不过表示能使用哪些内存结点  
     voluntary_context_switches，nonvoluntary_context_switches：自愿的上下文切换，非自愿的上下文切换  
 
 进程统计信息还有一个文件，/proc/[pid]/stat，ps命令会用到这个文件。这个文件是一组数字，各个字段的含义如下：
 
-    pid：进程ID  
-    comm：可执行文件名字，如果被交换出去的话，则名字不可见  
-    state：进程目前所处的状态，取值是“RSDZTW”这几个字母之一一。R是运行，S是睡眠可中断，D是不可中断等待磁盘，Z是僵尸，T是被跟踪或者停止态。  
-    ppid：父进程ID  
-    pgrp：父进程组ID  
-    session：会话ID  
-    tty_nr：进程的控制终端  
-    tpgid：进程控制终端的前台进程组ID  
-    flags：进程的内核标记  
-    minflt：  
-    cminflt：  
-    majflt：  
-    cmajflt：  
-    utime：进程在用户态消耗的时间  
-    stime：进程在内核态消耗的时间  
-    cutime：进程的子进程在用户态消耗的时间  
-    cstime：进程的子进程在内核态消耗的时间  
-    priority：进程调度优先级。实时策略，-2到-100；非实时策略，0到39  
-    nice：进程优先级调整，-20到19  
-    num_threads：进程包含的线程数  
-    itrealvalue：2.6.17版本后固定为0  
-    starttime：进程启动时间  
-    vsize：进程使用的虚拟内存大小  
-    rss：进程占用的在内存中的资源大小，包含代码段，数据段，堆栈，不包括换出的。  
-    rsslim：进程的资源软限制  
-    startcode：进程代码可执行起始地址  
-    endcode：进程代码可执行结束地址  
-    startstack：堆栈的起始地址（栈底）  
-    kstkesp：ESP寄存器的当前值  
-    kstkeip：EIP寄存器的当前值  
-    signal：未处理的信号（已经废弃）  
-    blocked：阻止的信号（已经废弃）  
-    sigignore：忽略的信号（已经废弃）  
-    sigcatch：捕捉到的信息（已经废弃）  
-    wchan：进程等待的内核地址  
-    nswap：换出的页面数(不再维护)  
-    cnswap：子进程累计的换出页面数(不再维护)  
-    exit_signal：进程死掉时发送给父进程的信号  
-    processor：上一次运行的CPU  
-    rt_priority：实时调度策略下的优先级，1到99的数字。  
-    policy：调度策略  
+    pid                  ：进程ID  
+    comm                 ：可执行文件名字，如果被交换出去的话，则名字不可见  
+    state                ：进程目前所处的状态，取值是“RSDZTW”这几个字母之一一。R是运行，S是睡眠可中断，D是不可中断等待磁盘，Z是僵尸，T是被跟踪或者停止态。  
+    ppid                 ：父进程ID  
+    pgrp                 ：父进程组ID  
+    session              ：会话ID  
+    tty_nr               ：进程的控制终端  
+    tpgid                ：进程控制终端的前台进程组ID  
+    flags                ：进程的内核标记  
+    minflt               ：  
+    cminflt              ：  
+    majflt               ：  
+    cmajflt              ：  
+    utime                ：进程在用户态消耗的时间  
+    stime                ：进程在内核态消耗的时间  
+    cutime               ：进程的子进程在用户态消耗的时间  
+    cstime               ：进程的子进程在内核态消耗的时间  
+    priority             ：进程调度优先级。实时策略，-2到-100；非实时策略，0到39  
+    nice                 ：进程优先级调整，-20到19  
+    num_threads          ：进程包含的线程数  
+    itrealvalue          ：2.6.17版本后固定为0  
+    starttime            ：进程启动时间  
+    vsize                ：进程使用的虚拟内存大小  
+    rss                  ：进程占用的在内存中的资源大小，包含代码段，数据段，堆栈，不包括换出的。  
+    rsslim               ：进程的资源软限制  
+    startcode            ：进程代码可执行起始地址  
+    endcode              ：进程代码可执行结束地址  
+    startstack           ：堆栈的起始地址（栈底）  
+    kstkesp              ：ESP寄存器的当前值  
+    kstkeip              ：EIP寄存器的当前值  
+    signal               ：未处理的信号（已经废弃）  
+    blocked              ：阻止的信号（已经废弃）  
+    sigignore            ：忽略的信号（已经废弃）  
+    sigcatch             ：捕捉到的信息（已经废弃）  
+    wchan                ：进程等待的内核地址  
+    nswap                ：换出的页面数(不再维护)  
+    cnswap               ：子进程累计的换出页面数(不再维护)  
+    exit_signal          ：进程死掉时发送给父进程的信号  
+    processor            ：上一次运行的CPU  
+    rt_priority          ：实时调度策略下的优先级，1到99的数字。  
+    policy               ：调度策略  
     delayacct_blkio_ticks：累计IO延迟  
-    guest_time：为guest os运行花费的时间  
-    cguest_tie：子进程为guest_os运行花费的时间
+    guest_time           ：为guest os运行花费的时间  
+    cguest_tie           ：子进程为guest_os运行花费的时间  
